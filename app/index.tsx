@@ -1,17 +1,20 @@
-import { View } from "react-native";
-import { Link } from "expo-router";
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './pages/Login';  
+import Register from './pages/Register';  
+import Home from './pages/Home'; 
+
+const Stack = createStackNavigator();
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Link href="/pages/Register">Register</Link>
-      <Link href="/pages/Login">Log in</Link>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Home" component={Home} />  
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

@@ -3,7 +3,7 @@ import { Text, TextInput, Button, Alert, View } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 
-export default function LoginScreen() {
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +15,7 @@ export default function LoginScreen() {
         password
       );
       const user = userCredential.user;
+      console.log("oui");
       Alert.alert("Succès", `Bienvenue ${user.email} !`);
     } catch (error: unknown) {
       if (error instanceof Error) {
